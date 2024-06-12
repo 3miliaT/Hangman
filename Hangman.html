@@ -4,41 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-
-        .game-container {
-            margin: 50px auto;
-            width: 300px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #wordContainer {
-            margin: 20px 0;
-            font-size: 24px;
-        }
-
-        #lives {
-            margin: 20px 0;
-            font-size: 18px;
-        }
-
-        #letterInput {
-            width: 50px;
-            font-size: 18px;
-        }
-
-        button {
-            padding: 5px 10px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-container">
@@ -49,46 +15,6 @@
         <input type="text" id="letterInput" maxlength="1" placeholder="Enter a letter" />
         <button onclick="guessLetter()">Guess</button>
     </div>
-    <script>
-        let word = "javascript"; // The word to guess
-        let hiddenWord = Array(word.length).fill('_');
-        let lives = 7;
-
-        document.getElementById('wordContainer').innerHTML = hiddenWord.join(' ');
-
-        function guessLetter() {
-            let input = document.getElementById('letterInput');
-            let letter = input.value.toLowerCase();
-            input.value = '';
-
-            if (letter && letter.match(/[a-z]/) && letter.length === 1) {
-                if (word.includes(letter)) {
-                    for (let i = 0; i < word.length; i++) {
-                        if (word[i] === letter) {
-                            hiddenWord[i] = letter;
-                        }
-                    }
-                } else {
-                    lives--;
-                }
-
-                document.getElementById('wordContainer').innerHTML = hiddenWord.join(' ');
-                document.getElementById('lives').innerHTML = `Lives: ${lives}`;
-
-                if (!hiddenWord.includes('_')) {
-                    document.getElementById('message').innerHTML = "Congratulations! You've won!";
-                    disableInput();
-                } else if (lives === 0) {
-                    document.getElementById('message').innerHTML = `Game over! The word was: ${word}`;
-                    disableInput();
-                }
-            }
-        }
-
-        function disableInput() {
-            document.getElementById('letterInput').disabled = true;
-            document.querySelector('button').disabled = true;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
