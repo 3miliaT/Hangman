@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    margin: 50px auto;
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#wordContainer {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+#lives {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#letterInput {
+    width: 50px;
+    font-size: 18px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+}
